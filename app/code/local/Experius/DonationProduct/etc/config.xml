@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Experius_DonationProduct>
+      <version>1.0.0</version>
+    </Experius_DonationProduct>
+  </modules>
+  <global>
+    <helpers>
+      <donationproduct>
+        <class>Experius_DonationProduct_Helper</class>
+      </donationproduct>
+    </helpers>
+  </global>
+</config> 

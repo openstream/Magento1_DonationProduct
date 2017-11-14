@@ -1,0 +1,2 @@
+app/code/local/Experius/DonationProduct                 app/code/local/Experius/DonationProduct
+app/code/local/Experius/DonationProduct/etc/config.xml  app/code/local/Experius/DonationProduct/etc/config.xml
