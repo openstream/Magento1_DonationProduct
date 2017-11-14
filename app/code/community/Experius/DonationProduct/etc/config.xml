@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Experius_DonationProduct>
+            <version>1.0.0</version>
+        </Experius_DonationProduct>
+    </modules>
+    <global>
+        <blocks>
+            <donationproduct>
+                <class>Experius_DonationProduct_Block</class>
+            </donationproduct>
+        </blocks>
+        <helpers>
+            <donationproduct>
+                <class>Experius_DonationProduct_Helper</class>
+            </donationproduct>
+        </helpers>
+        <models>
+            <donationproduct>
+                <class>Experius_DonationProduct_Model</class>
+            </donationproduct>
+        </models>
+        <resources>
+            <donationproduct_setup>
+                <setup>
+                    <module>Experius_DonationProduct</module>
+                    <class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </donationproduct_setup>
+            <donationproduct_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </donationproduct_write>
+            <donationproduct_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </donationproduct_read>
+        </resources>
+        <catalog>
+            <product>
+                <type>
+                    <donation translate="label" module="donationproduct">
+                        <label>Donation Product</label>
+                        <model>donationproduct/product_type_donation</model>
+                        <composite>0</composite>
+                        <index_priority>25</index_priority>
+                        <price_model>donationproduct/product_price</price_model>
+                    </donation>
+                </type>
+            </product>
+        </catalog>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <donationproduct>
+                    <file>donationproduct.xml</file>
+                </donationproduct>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <donationproduct>
+                <use>admin</use>
+                <args>
+                    <module>Experius_DonationProduct</module>
+                    <frontName>admin_donationproduct</frontName>
+                </args>
+            </donationproduct>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <donationproduct module="donationproduct">
+                <title>DonationProduct</title>
+                <sort_order>100</sort_order>
+                <children>
+                    <donationproductbackend module="donationproduct">
+                        <title>Backend Page Title</title>
+                        <sort_order>0</sort_order>
+                        <action>admin_donationproduct/adminhtml_donationproductbackend</action>
+                    </donationproductbackend>
+                </children>
+            </donationproduct>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <donationproduct translate="title" module="donationproduct">
+                            <title>DonationProduct</title>
+                            <sort_order>1000</sort_order>
+                            <children>
+                                <donationproductbackend translate="title">
+                                    <title>Backend Page Title</title>
+                                </donationproductbackend>
+                            </children>
+                        </donationproduct>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <donationproduct>
+                    <file>donationproduct.xml</file>
+                </donationproduct>
+            </updates>
+        </layout>
+    </adminhtml>
+</config> 

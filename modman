@@ -1,0 +1,6 @@
+app/code/community/Experius/DonationProduct
+app/design/adminhtml/default/default/layout/donationproduct.xml
+app/design/adminhtml/default/default/template/donationproduct
+app/etc/modules/Experius_DonationProduct.xml
+app/design/frontend/base/default/template/donationproduct
+app/design/frontend/base/default/layout/donationproduct/donationproduct.xml

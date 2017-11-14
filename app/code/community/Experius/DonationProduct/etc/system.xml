@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	  <tabs>
+		<experius_donation translate="label" module="donationproduct">
+            <label>Experius Donation</label>
+            <sort_order>0</sort_order>
+        </experius_donation>
+	  </tabs>
+</config>

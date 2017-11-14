@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <donationproduct_adminhtml_donationproductbackend_index>
+	<reference name="content">
+	  <block type="donationproduct/adminhtml_donationproductbackend" name="donationproductbackend" template="donationproduct/donationproductbackend.phtml"/>
+	</reference>
+  </donationproduct_adminhtml_donationproductbackend_index>
+</layout>
