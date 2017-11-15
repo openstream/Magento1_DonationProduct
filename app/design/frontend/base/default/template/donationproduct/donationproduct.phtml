@@ -1,0 +1,93 @@
+<section class="exp-donation">
+    <header>
+        <h3>Steun een goed doel met uw donatie.</h3>
+    </header>
+    <p>
+        Lorem Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.             
+    </p>
+    <article class="exp-donation-product">
+        <a href="PRODUCTLINK" title="PRODUCTNAME" class="exp-donation-product-link">
+            <img src="http://via.placeholder.com/200x200" alt="PRODUCTNAME" class="exp-donation-product-image" />
+        </a>
+        <button class="exp-donation-product-tocart">
+            ADDTOCARTLABEL
+        </button>
+    </article>
+    <article class="exp-donation-product">
+        <a href="PRODUCTLINK" title="PRODUCTNAME" class="exp-donation-product-link">
+            <img src="http://via.placeholder.com/200x200" alt="PRODUCTNAME" class="exp-donation-product-image" />
+        </a>
+        <button class="exp-donation-product-tocart">
+            ADDTOCARTLABEL
+        </button>
+    </article>
+    <article class="exp-donation-product">
+        <a href="PRODUCTLINK" title="PRODUCTNAME" class="exp-donation-product-link">
+            <img src="http://via.placeholder.com/200x200" alt="PRODUCTNAME" class="exp-donation-product-image" />
+        </a>
+        <button class="exp-donation-product-tocart">
+            ADDTOCARTLABEL
+        </button>
+    </article>
+    <article class="exp-donation-product">
+        <a href="PRODUCTLINK" title="PRODUCTNAME" class="exp-donation-product-link">
+            <img src="http://via.placeholder.com/200x200" alt="PRODUCTNAME" class="exp-donation-product-image" />
+        </a>
+        <button class="exp-donation-product-tocart">
+            ADDTOCARTLABEL
+        </button>
+    </article>
+    
+    <div class="donation-modal">
+        <article>
+            <img src="http://via.placeholder.com/200x200" alt="CHARITY" class="charity-image" />
+            <h2>KNGF</h2>
+            <p>PRODUCT DESCRIPTION</p>
+        </article>
+        <form method="POST" class="charity-form">
+            <div class="donation-amounts">
+                <label class="donation-amount-btn" data-amount="5">
+                    <input type="radio" name="amount" value="5">
+                    <span>€ 5</span>
+                </label>
+                <label class="donation-amount-btn" data-amount="10">
+                    <input type="radio" name="amount" value="10">
+                    <span>€ 10</span>
+                </label>
+                <label class="donation-amount-btn" data-amount="15">
+                    <input type="radio" name="amount" value="15">
+                    <span>€ 15</span>
+                </label>
+                <label class="donation-amount-btn" data-amount="25">
+                    <input type="radio" name="amount" value="25">
+                    <span>€ 25</span>
+                </label>
+                <label class="donation-amount-btn" data-amount="50">
+                    <input type="radio" name="amount" value="50">
+                    <span>€ 50</span>
+                </label>
+                <label for="donation-amount-custom">€</label>
+                <input id="donation-amount-custom" class="input-text required-entry validate-number validate-not-negative-number" name="amount" type="number" step="1" autofocus="false">
+            </div>
+            <button type="submit" class="button" id="submit">Ja, ik help mee</button>
+        </form>
+    </div>
+</section>
+
+<style>
+.exp-donation {
+    background: #f2f2f2;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px;
+}
+.exp-donation-product {
+    float: left;
+    flex: 0 0 22%;
+}
+
+/* Magento 1 inside column */
+.col-left .exp-donation-product {
+    width: 100%;
+}
+</style>
