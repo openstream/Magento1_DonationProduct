@@ -55,17 +55,6 @@
                 </type>
             </product>
         </catalog>
-        <events>
-            <checkout_cart_product_add_after>
-                <observers>
-                    <experius_donation_set_chosen_price>
-                        <type>singleton</type>
-                        <class>Experius_DonationProduct_Model_Observer</class>
-                        <method>setChosenPrice</method>
-                    </experius_donation_set_chosen_price>
-                </observers>
-            </checkout_cart_product_add_after>
-        </events>
     </global>
     <frontend>
         <layout>

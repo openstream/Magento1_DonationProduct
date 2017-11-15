@@ -7,18 +7,51 @@ class Experius_DonationProduct_Model_Product_Price extends Mage_Catalog_Model_Pr
         return (float)(time() / 100);
     }
 
-    /**
-     * Retrieve product final price
-     *
-     * @param float|null $qty
-     * @param Mage_Catalog_Model_Product $product
-     * @return float
-     */
-    public function getFinalPrice($qty = null, $product)
+    public function getPrice($product)
     {
-        //$buyRequest = $product->getCustomOption('info_buyRequest');
-        //$product->setFinalPrice($finalPrice);
+        $price = $this->getDonationAmount(1, $product);
+        return $price;
+    }
 
-        return '0.01';
+    public function getFinalPrice($qty, $product)
+    {
+        $finalPrice = $this->getDonationAmount($qty, $product);
+        $product->setFinalPrice($finalPrice);
+
+        Mage::dispatchEvent('catalog_product_get_final_price', array('product' => $product, 'qty' => $qty));
+
+        $finalPrice = $product->getData('final_price');
+        $finalPrice = max(0, $finalPrice);
+        $product->setFinalPrice($finalPrice);
+
+        return $finalPrice;
+    }
+
+
+    public function getBasePrice($product, $qty = null)
+    {
+        $price =  $this->getDonationAmount($qty, $product);
+        return $price;
+    }
+
+
+    public function getDonationAmount($qty, $product)
+    {
+
+        $price = $product->getData('price');
+
+        $postData = $product->getCustomOption('donation_options');
+
+        if (!$postData) {
+            return $price;
+        }
+
+        $postData = json_decode($postData->getValue(), true);
+
+        if (isset($postData['amount'])) {
+            return $postData['amount'];
+        }
+
+        return $price;
     }
 }

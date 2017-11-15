@@ -1,2 +1,2 @@
-**Magento 1 Module Experius DonationProduct**
+**Magento 1 Module Experius DonationProduct (IN DEVELOPMENT)**
 
