@@ -5,6 +5,10 @@
       <active>true</active>
       <codePool>community</codePool>
       <version>1.0.0</version>
+      <depends>
+        <Mage_Catalog />
+        <Mage_Sales />
+      </depends>
     </Experius_DonationProduct>
   </modules>
 </config>

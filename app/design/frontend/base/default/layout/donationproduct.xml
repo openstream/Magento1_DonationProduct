@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
+
     <checkout_cart_index>
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>js/jquery.fancybox.min.js</name></action>
@@ -8,5 +9,16 @@
             <block type="core/template" name="donation.product" template="donationproduct/donationproduct.phtml" />
         </reference>
     </checkout_cart_index>
+
+    <PRODUCT_TYPE_donation translate="label" module="donationProduct">
+        <label>Catalog Product View (Donation)</label>
+        <reference name="root">
+            <action method="addBodyClass"><classname>catalog-product-view-donation</classname></action>
+        </reference>
+        <reference name="product.info">
+            <block type="core/template" name="product.info.donation" as="product_type_data" template="donationproduct/catalog/product/view/type/options/donation.phtml"/>
+        </reference>
+    </PRODUCT_TYPE_donation>
+
 </layout>
 

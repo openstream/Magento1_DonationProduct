@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 app/code/community/Experius/DonationProduct
 app/design/adminhtml/default/default/layout/donationproduct.xml
 app/design/adminhtml/default/default/template/donationproduct
@@ -6,7 +5,3 @@ app/etc/modules/Experius_DonationProduct.xml
 app/design/frontend/base/default/template/donationproduct
 app/design/frontend/base/default/layout/donationproduct.xml
 skin/frontend/base/default/js/jquery.fancybox.min.js
-=======
-app/code/local/Experius/DonationProduct                 app/code/local/Experius/DonationProduct
-app/code/local/Experius/DonationProduct/etc/config.xml  app/code/local/Experius/DonationProduct/etc/config.xml
->>>>>>> e929490f52c4b2aed8326d12dc3ad52adce2a2ac
