@@ -65,6 +65,7 @@
             </updates>
         </layout>
     </frontend>
+    <!--
     <admin>
         <routers>
             <donationproduct>
@@ -75,9 +76,9 @@
                 </args>
             </donationproduct>
         </routers>
-    </admin>
+    </admin> -->
     <adminhtml>
-        <menu>
+         <!--<menu>
             <donationproduct module="donationproduct">
                 <title>DonationProduct</title>
                 <sort_order>100</sort_order>
@@ -109,7 +110,7 @@
                     </children>
                 </admin>
             </resources>
-        </acl>
+        </acl> -->
         <layout>
             <updates>
                 <donationproduct>

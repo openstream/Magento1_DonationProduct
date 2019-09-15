@@ -1,10 +1,58 @@
+<?php
+/** @var Experius_DonationProduct_Block_Catalog_Product_Options $this */
+use Experius_DonationProduct_Model_Source_Display_Mode as DisplayMode;
+?>
 
-form
 <fieldset class="fieldset">
-    <div class="field width">
-        <label class="label" for="name"><span>Donation Amount</span></label>
-        <div class="control">
-            <input name="amount" id="amount" title="amount" class="input-text validate-number" type="text" value="">
+
+    <?php if (in_array($this->getAmountDisplayMode(), [DisplayMode::MODE_FIXED, DisplayMode::MODE_BOTH])): ?>
+        <div class="label"><?php echo $this->__('Choose an amount to donate:'); ?></div>
+        <div class="field form-list fixed-amount">
+            <?php foreach ($this->getFixedAmounts() as $amount): ?>
+                <div class="donation-amount">
+                    <input type="radio" id="fixed-amount-<?= $amount; ?>" name="amount" value="<?= $amount; ?>">
+                    <label for="fixed-amount-<?= $amount; ?>">
+                        <?php echo Mage::app()->getStore()->formatPrice($amount); ?>
+                    </label>
+                </div>
+            <?php endforeach; ?>
         </div>
-    </div>
+    <?php endif; ?>
+
+    <?php if ($this->getAmountDisplayMode() === DisplayMode::MODE_BOTH): ?>
+        <div class="donation-or">
+            <?php echo $this->__('Or'); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (in_array($this->getAmountDisplayMode(), [DisplayMode::MODE_INPUT, DisplayMode::MODE_BOTH])): ?>
+        <div class="field form-list donation-input">
+            <label class="label" for="user-amount"><?php echo $this->__('Enter donation amount in <span>%s</span>', $this->getCurrencyCode()); ?></label>
+
+            <div class="input-box">
+                <input name="amount" id="user-amount" title="amount" class="input-text validate-number required-entry" type="text" value="<?= $this->getMinAmount(); ?>">
+            </div>
+        </div>
+    <?php endif; ?>
+
 </fieldset>
+<?php if ($this->getAmountDisplayMode() === DisplayMode::MODE_BOTH): ?>
+    <script type="text/javascript">
+        $('user-amount').observe('keypress', function () {
+            $$('[name="amount"]').each(function (element) {
+                if (element.type === 'radio') {
+                    element.checked = false;
+                }
+            });
+        });
+        $$('[name="amount"]').each(function (element) {
+            if (element.type === 'radio') {
+                element.observe('click', function () {
+                    if (element.checked) {
+                        $('user-amount').value = element.value;
+                    }
+                });
+            }
+        })
+    </script>
+<?php endif; ?>

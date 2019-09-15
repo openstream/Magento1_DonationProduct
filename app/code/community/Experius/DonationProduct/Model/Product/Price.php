@@ -37,7 +37,6 @@ class Experius_DonationProduct_Model_Product_Price extends Mage_Catalog_Model_Pr
 
     public function getDonationAmount($qty, $product)
     {
-
         $price = $product->getData('price');
 
         $postData = $product->getCustomOption('donation_options');
@@ -48,8 +47,22 @@ class Experius_DonationProduct_Model_Product_Price extends Mage_Catalog_Model_Pr
 
         $postData = json_decode($postData->getValue(), true);
 
+        $helper = Mage::helper('donationproduct');
+
         if (isset($postData['amount'])) {
-            return $postData['amount'];
+            $amount = $postData['amount'];
+
+            $minAmount = $helper->getMinAmount($product);
+            if ($amount < $minAmount) {
+                return $minAmount;
+            }
+
+            $maxAmount = $helper->getMaxAmount($product);
+            if ($amount > $maxAmount) {
+                return $maxAmount;
+            }
+
+            return $amount;
         }
 
         return $price;

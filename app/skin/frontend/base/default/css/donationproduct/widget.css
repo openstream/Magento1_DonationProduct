@@ -1,0 +1,47 @@
+.exp-donation {
+    background: #f2f2f2;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px;
+}
+
+.exp-donation-product {
+    float: left;
+    flex: 0 0 22%;
+}
+
+.exp-donation-product button {
+    width: 100%;
+}
+
+.exp-donation-product a {
+    display: flex;
+}
+
+.exp-donation-product a img {
+    margin: 0 auto;
+}
+
+.exp-donation-product .user-input input {
+    width: 100%;
+}
+
+.col-left .exp-donation-product {
+    width: 100%;
+}
+
+.fixed-amounts {
+    margin: 5px;
+}
+
+.fixed-amounts .donation-amount {
+    display: flex;
+    padding-left: 0.5em;
+    cursor: pointer;
+}
+
+.fixed-amounts .donation-amount input[type=radio] {
+    width: 0.875em;
+    height: 0.875em;
+    margin: 0.25em 0.5em 0.25em 0.25em;
+}

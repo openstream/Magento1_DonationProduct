@@ -1,0 +1,21 @@
+.product-view .donation-quantity {
+    display: none;
+}
+.product-view .price-info, .availability {
+    display: none;
+}
+.donation-input .label span {
+    font-weight: bold;
+}
+div.label {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+}
+.donation-amount label {
+    cursor: pointer;
+}
+div.donation-or {
+    margin: 10px 0;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
