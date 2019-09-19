@@ -1,6 +1,10 @@
 <?php
 class Experius_DonationProduct_Block_Widget extends Mage_Core_Block_Template
 {
+    const DISPLAY_AREA = 'widget';
+
+    protected $_configPrefix = 'widget';
+
     /**
      * @return Mage_Catalog_Model_Resource_Product_Collection
      */
@@ -50,5 +54,57 @@ class Experius_DonationProduct_Block_Widget extends Mage_Core_Block_Template
         $additional['_query']['options'] = 'cart';
 
         return $product->getUrlModel()->getUrl($product, $additional);
+    }
+
+    /**
+     * @return string
+     * @throws Mage_Core_Model_Store_Exception
+     */
+    public function getTitle()
+    {
+        return $this->getLayoutConfig($this->_configPrefix . '_title');
+    }
+
+    /**
+     * @return string
+     * @throws Mage_Core_Model_Store_Exception
+     */
+    public function getText()
+    {
+        return $this->getLayoutConfig($this->_configPrefix . '_text');
+    }
+
+    /**
+     * @return string
+     * @throws Mage_Core_Model_Store_Exception
+     */
+    public function _toHtml()
+    {
+        if (!(Mage::helper('donationproduct')->isEnabled()
+            && $this->getLayoutConfig('show_in_' . $this->_configPrefix)
+            && $this->getProductCollection()->getSize())
+        ) {
+            return '';
+        }
+
+        return parent::_toHtml();
+    }
+
+    /**
+     * @return bool
+     * @throws Mage_Core_Model_Store_Exception
+     */
+    public function showImage()
+    {
+        return (bool) $this->getLayoutConfig($this->_configPrefix . '_show_image');
+    }
+
+    /**
+     * @return int
+     * @throws Mage_Core_Model_Store_Exception
+     */
+    public function getImageSize()
+    {
+        return (int) $this->getLayoutConfig($this->_configPrefix . '_image_size');
     }
 }

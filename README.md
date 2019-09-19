@@ -21,9 +21,13 @@ Defines, where the products can be shown
 
 - Show in Sidebar (category page etc.) - yes/no
 - Sidebar title - Title above the donation block
+- Show image in sidebar - If the product image should be shown
+- Sidebar image size
 - Sidebar text - Text in the donation block
 - Show in Cart
 - Cart title
+- Show image in cart
+- Cart image size
 - Cart text
 
 **Adding a product**
@@ -38,13 +42,13 @@ Defines, where the products can be shown
 ---
 
 **To do list**
-- [ ] Add translations (at least DE and FR)
+- [x] Add translations (at least DE and FR)
 - [ ] Update modman
 - [ ] Add composer.json
 - [ ] Add loader for ajax requests
 - [ ] Add session message after adding product to cart
-- [ ] Make the setting "Enable" work
-- [ ] Add default values for attributes and configuration
+- [x] Make the setting "Enable" work
+- [x] Add default values for attributes and configuration
 - [ ] Implement a widget that can be built in any CMS block or page
 - [ ] Display in checkout
  

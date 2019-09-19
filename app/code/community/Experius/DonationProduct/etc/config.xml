@@ -64,6 +64,15 @@
                 </donationproduct>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <Experius_DonationProduct>
+                    <files>
+                        <default>Experius_DonationProduct.csv</default>
+                    </files>
+                </Experius_DonationProduct>
+            </modules>
+        </translate>
     </frontend>
     <!--
     <admin>
@@ -119,4 +128,19 @@
             </updates>
         </layout>
     </adminhtml>
+    <default>
+        <donation_product>
+            <settings>
+                <min_amount>5</min_amount>
+                <max_amount>100000</max_amount>
+                <fixed_amount>5, 10, 25, 50, 100</fixed_amount>
+            </settings>
+            <layout>
+                <sidebar_show_image>1</sidebar_show_image>
+                <sidebar_image_size>200</sidebar_image_size>
+                <cart_show_image>1</cart_show_image>
+                <cart_image_size>200</cart_image_size>
+            </layout>
+        </donation_product>
+    </default>
 </config> 

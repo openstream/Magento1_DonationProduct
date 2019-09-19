@@ -84,10 +84,29 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </sidebar_title>
+                        <sidebar_show_image translate="label,comment">
+                            <label>Show Image in Sidebar</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sidebar_show_image>
+                        <sidebar_image_size translate="label,comment">
+                            <label>Sidebar Image Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-number validate-number-range number-range-1-500</validate>
+                            <comment>In pixels</comment>
+                        </sidebar_image_size>
                         <sidebar_text translate="label,comment">
                             <label>Sidebar Text</label>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>30</sort_order>
+                            <sort_order>50</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -97,7 +116,7 @@
                             <comment><![CDATA[]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>40</sort_order>
+                            <sort_order>60</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -105,15 +124,34 @@
                         <cart_title translate="label,comment">
                             <label>Cart Title</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>50</sort_order>
+                            <sort_order>70</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </cart_title>
+                        <cart_show_image translate="label,comment">
+                            <label>Show Image in Cart</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cart_show_image>
+                        <cart_image_size translate="label,comment">
+                            <label>Cart Image Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>In pixels</comment>
+                            <validate>validate-number validate-number-range number-range-1-500</validate>
+                        </cart_image_size>
                         <cart_text translate="label,comment">
                             <label>Cart Text</label>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>60</sort_order>
+                            <sort_order>100</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>

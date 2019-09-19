@@ -7,9 +7,15 @@
 
 .exp-donation-product {
     float: left;
-    flex: 0 0 22%;
 }
 
+.checkout-cart-index .exp-donation-product {
+    flex: 0 0 25%;
+}
+
+.exp-donation header {
+    width: 100%;
+}
 .exp-donation-product button {
     width: 100%;
 }
@@ -38,6 +44,10 @@
     display: flex;
     padding-left: 0.5em;
     cursor: pointer;
+}
+
+.user-input .donation-amount span {
+    white-space: nowrap;
 }
 
 .fixed-amounts .donation-amount input[type=radio] {

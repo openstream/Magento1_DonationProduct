@@ -6,7 +6,7 @@ use Experius_DonationProduct_Model_Source_Display_Mode as DisplayMode;
 <fieldset class="fieldset">
 
     <?php if (in_array($this->getAmountDisplayMode(), [DisplayMode::MODE_FIXED, DisplayMode::MODE_BOTH])): ?>
-        <div class="label"><?php echo $this->__('Choose an amount to donate:'); ?></div>
+        <div class="label"><?php echo $this->__('Choose an amount:'); ?></div>
         <div class="field form-list fixed-amount">
             <?php foreach ($this->getFixedAmounts() as $amount): ?>
                 <div class="donation-amount">
@@ -27,7 +27,7 @@ use Experius_DonationProduct_Model_Source_Display_Mode as DisplayMode;
 
     <?php if (in_array($this->getAmountDisplayMode(), [DisplayMode::MODE_INPUT, DisplayMode::MODE_BOTH])): ?>
         <div class="field form-list donation-input">
-            <label class="label" for="user-amount"><?php echo $this->__('Enter donation amount in <span>%s</span>', $this->getCurrencyCode()); ?></label>
+            <label class="label" for="user-amount"><?php echo $this->__('Enter an amount in <span>%s</span>', $this->getCurrencyCode()); ?></label>
 
             <div class="input-box">
                 <input name="amount" id="user-amount" title="amount" class="input-text validate-number required-entry" type="text" value="<?= $this->getMinAmount(); ?>">

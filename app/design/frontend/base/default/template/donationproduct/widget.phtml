@@ -6,17 +6,20 @@ use Experius_DonationProduct_Model_Source_Display_Mode as DisplayMode;
 <section class="exp-donation">
     <header>
         <h3><?= $this->getTitle(); ?></h3>
+        <p>
+            <?= $this->getText(); ?>
+        </p>
     </header>
-    <p>
-        <?= $this->getText(); ?>
-    </p>
+
     <?php /** @var Mage_Catalog_Model_Product $product */ ?>
     <?php foreach ($this->getProductCollection() as $product): ?>
         <article class="exp-donation-product">
 
-            <a href="<?= $product->getProductUrl() ?>" title="<?= $product->getName(); ?>" class="exp-donation-product-link">
-                <img src="<?= Mage::helper('catalog/image')->init($product, 'small_image')->resize(200); ?>" alt="<?= $product->getName(); ?>" class="exp-donation-product-image" />
-            </a>
+            <?php if ($this->showImage()): ?>
+                <a href="<?= $product->getProductUrl() ?>" title="<?= $product->getName(); ?>" class="exp-donation-product-link">
+                    <img src="<?= Mage::helper('catalog/image')->init($product, 'small_image')->resize($this->getImageSize()); ?>" alt="<?= $product->getName(); ?>" class="exp-donation-product-image" />
+                </a>
+            <?php endif; ?>
 
             <form id="donation-form-<?php echo $product->getId(); ?>" method="POST" action="<?php echo $this->getAddToCartUrl($product, array('_secure' => $this->_isSecure())) ?>">
                 <?php echo $this->getBlockHtml('formkey') ?>
@@ -29,7 +32,7 @@ use Experius_DonationProduct_Model_Source_Display_Mode as DisplayMode;
                         <div class="fixed-amounts fixed-amounts-<?php echo $product->getId(); ?>">
                             <?php foreach ($this->helper('donationproduct')->getFixedAmounts() as $amount): ?>
                                 <label class="donation-amount">
-                                    <input type="radio" value="<?php echo $amount; ?>" name="amount">
+                                    <input type="radio" class="radio" value="<?php echo $amount; ?>" name="amount">
                                     <span><?php echo Mage::app()->getStore()->formatPrice($amount);?></span>
                                 </label>
                             <?php endforeach; ?>
@@ -57,7 +60,7 @@ use Experius_DonationProduct_Model_Source_Display_Mode as DisplayMode;
                 //<![CDATA[
                 (function () {
                     var formId = 'donation-form-<?php echo $product->getId(); ?>';
-                    var form = new VarienForm(formId, true);
+                    var form = new VarienForm(formId, false);
                     var action = $(formId).action;
                     function doAjax() {
                         if (form.validator.validate()) {

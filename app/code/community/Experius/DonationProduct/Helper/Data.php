@@ -15,6 +15,15 @@ class Experius_DonationProduct_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * @return bool
+     * @throws Mage_Core_Model_Store_Exception
+     */
+    public function isEnabled()
+    {
+       return (bool) Mage::app()->getStore()->getConfig('donation_product/settings/enabled');
+    }
+
+    /**
      * @param Mage_Catalog_Model_Product $product
      * @return float
      * @throws Mage_Core_Model_Store_Exception

@@ -4,39 +4,13 @@ class Experius_DonationProduct_Block_Sidebar extends Experius_DonationProduct_Bl
 {
     const DISPLAY_AREA = 'sidebar';
 
+    protected $_configPrefix = 'sidebar';
+
     public function getProductCollection()
     {
         $collection = parent::getProductCollection();
-        $collection->addAttributeToFilter('display_area', self::DISPLAY_AREA);
+        $collection->addAttributeToFilter('display_area', ['finset' => self::DISPLAY_AREA]);
 
         return $collection;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->getLayoutConfig('sidebar_title');
-    }
-
-    /**
-     * @return string
-     */
-    public function getText()
-    {
-        return $this->getLayoutConfig('sidebar_text');
-    }
-
-    /**
-     * @return string
-     */
-    public function _toHtml()
-    {
-        if (!$this->getLayoutConfig('show_in_sidebar') || !$this->getProductCollection()->getSize()) {
-            return '';
-        }
-
-        return parent::_toHtml();
     }
 }
