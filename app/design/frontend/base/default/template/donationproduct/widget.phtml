@@ -6,11 +6,11 @@ use Experius_DonationProduct_Model_Source_Display_Mode as DisplayMode;
 <section class="exp-donation">
     <header>
         <h3><?= $this->getTitle(); ?></h3>
-        <p>
-            <?= $this->getText(); ?>
-        </p>
     </header>
 
+    <div class="donation-text">
+            <?= $this->getText(); ?>
+    </div>
     <?php /** @var Mage_Catalog_Model_Product $product */ ?>
     <?php foreach ($this->getProductCollection() as $product): ?>
         <article class="exp-donation-product">
@@ -47,7 +47,7 @@ use Experius_DonationProduct_Model_Source_Display_Mode as DisplayMode;
                                 <?php else: ?>
                                     <span><?php echo $this->__('Enter an amount in %s', Mage::app()->getStore()->getCurrentCurrencyCode()); ?></span>
                                 <?php endif; ?>
-                                <input name="amount" class="user-input required-entry" id="user-input-<?php echo $product->getId(); ?>" value="<?php echo $this->helper('donationproduct')->getMinAmount($product); ?>">
+                                <input name="amount" class="user-input input-text required-entry" id="user-input-<?php echo $product->getId(); ?>" value="<?php echo $this->helper('donationproduct')->getMinAmount($product); ?>">
                             </label>
                         </div>
                     <?php endif; ?>

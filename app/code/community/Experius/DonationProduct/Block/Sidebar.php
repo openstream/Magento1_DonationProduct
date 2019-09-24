@@ -8,9 +8,11 @@ class Experius_DonationProduct_Block_Sidebar extends Experius_DonationProduct_Bl
 
     public function getProductCollection()
     {
-        $collection = parent::getProductCollection();
-        $collection->addAttributeToFilter('display_area', ['finset' => self::DISPLAY_AREA]);
+        if (empty($this->_collection)) {
+            $this->_collection = parent::getProductCollection();
+            $this->_collection->addAttributeToFilter('display_area', ['finset' => self::DISPLAY_AREA]);
+        }
 
-        return $collection;
+        return $this->_collection;
     }
 }

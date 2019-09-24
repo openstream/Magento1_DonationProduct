@@ -6,19 +6,29 @@ class Experius_DonationProduct_Block_Widget extends Mage_Core_Block_Template
     protected $_configPrefix = 'widget';
 
     /**
+     * @var Mage_Catalog_Model_Resource_Product_Collection
+     */
+    protected $_collection;
+
+    /**
      * @return Mage_Catalog_Model_Resource_Product_Collection
      */
     public function getProductCollection()
     {
-        /** @var Mage_Catalog_Model_Resource_Product_Collection $collection */
-        $collection = Mage::getModel('catalog/product')->getCollection();
-        $collection->addAttributeToSelect('small_image');
-        $collection->addAttributeToSelect('name');
-        $collection->addAttributeToSelect('display_mode');
-        $collection->addAttributeToSelect('min_donation_amount');
-        $collection->addFieldToFilter('type_id', Experius_DonationProduct_Model_Product_Type::TYPE_DONATIONPRODUCT);
+        if (empty($this->_collection)) {
+            /** @var Mage_Catalog_Model_Resource_Product_Collection $collection */
+            $this->_collection = Mage::getModel('catalog/product')->getCollection();
+            $this->_collection->addAttributeToSelect('small_image');
+            $this->_collection->addAttributeToSelect('name');
+            $this->_collection->addAttributeToSelect('display_mode');
+            $this->_collection->addAttributeToSelect('min_donation_amount');
+            $this->_collection->addFieldToFilter(
+                'type_id',
+                Experius_DonationProduct_Model_Product_Type::TYPE_DONATIONPRODUCT
+            );
+        }
 
-        return $collection;
+        return $this->_collection;
     }
 
     /**
